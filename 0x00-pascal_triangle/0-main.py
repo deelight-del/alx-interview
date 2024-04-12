@@ -19,6 +19,12 @@ if __name__ == "__main__":
     print_triangle(pascal_triangle(1))
     print("\n for 2 is")
     print_triangle(pascal_triangle(2))
+    print("\n for 3 is")
+    print_triangle(pascal_triangle(3))
     print("\n for 20 is")
     print_triangle(pascal_triangle(20))
+    print("\n for 100 is")
+    print_triangle(pascal_triangle(100))
+    print("\n for 4 is")
+    print_triangle(pascal_triangle(4))
 

@@ -22,7 +22,4 @@ def pascal_triangle(n):
         return [[1]]
     if n == 2:
         return [[1], [1, 1]]
-    finalArray = [[1], [1, 1]]
-    for i in range(2, n):
-        finalArray += [helpPascal(finalArray[-1])]
-    return finalArray
+    return pascal_triangle(n-1) + ([helpPascal(pascal_triangle(n-1)[-1])])
