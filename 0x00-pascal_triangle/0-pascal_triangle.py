@@ -17,7 +17,7 @@ def helpPascal(array):
 def pascal_triangle(n):
     """The main function that implements pascal triangle"""
     if n <= 0:
-        return []
+        return [[]]
     if n == 1:
         return [[1]]
     if n == 2:
