@@ -15,7 +15,8 @@ def canUnlockAll(boxes):
             if boxUnlocked[j]:
                 keys = boxes[j]
                 for k in keys:
-                    boxUnlocked[k] = True
+                    if k < len(boxUnlocked):
+                        boxUnlocked[k] = True
     if sum(boxUnlocked) == len(boxes):
         return True
     return False
