@@ -37,6 +37,6 @@ def add_prime_factors(n: int) -> int:
 
 def minOperations(n):
     """The main function to evaluate minimum operations"""
-    if n <= 0:
+    if n <= 1:
         return 0
     return int(add_prime_factors(n))
