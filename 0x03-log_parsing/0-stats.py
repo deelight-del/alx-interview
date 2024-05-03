@@ -46,12 +46,13 @@ if __name__ == "__main__":
         if not match:
             loop_count += 1
             if loop_count % 10 == 0:
-                print("File size: {:d}".format(total_size))
+                """"print("File size: {:d}".format(total_size))
                 [
                     print("{:d}: {:d}".format(k, resp_dict[k]))
                     if resp_dict.get(k) > 0 else ""
                     for k in sorted(list(resp_dict.keys()))
-                ]
+                ]"""
+                signal_handler()
             continue
         # if match:
         #    print(line)
@@ -68,5 +69,5 @@ if __name__ == "__main__":
             [
                 print("{}: {}".format(k, resp_dict[k]))
                 if resp_dict.get(k) > 0 else ""
-                for k in sorted(resp_dict.keys(), reverse=True)
+                for k in sorted(resp_dict.keys())
             ]
