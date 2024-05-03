@@ -48,7 +48,7 @@ if __name__ == "__main__":
             # loop_count += 1
             # if loop_count % 10 == 0:
             #    signal_handler()
-        #if match:
+        # if match:
         #    print(line)
         # else:
         #    print("No match", line)
