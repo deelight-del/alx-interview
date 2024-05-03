@@ -25,9 +25,9 @@ if __name__ == "__main__":
 
     def signal_handler(_, __):
         """Define signal handler of CTRL+C"""
-        print("File size: {:d}".format(total_size))
+        print("File size: {}".format(total_size))
         [
-            print("{:d}: {:d}".format(k, resp_dict[k]))
+            print("{}: {}".format(k, resp_dict[k]))
             if resp_dict.get(k) > 0 else ""
             for k in sorted(list(resp_dict.keys()))
         ]
@@ -47,29 +47,23 @@ if __name__ == "__main__":
             continue
             # loop_count += 1
             # if loop_count % 10 == 0:
-            """"print("File size: {:d}".format(total_size))
-                [
-                    print("{:d}: {:d}".format(k, resp_dict[k]))
-                    if resp_dict.get(k) > 0 else ""
-                    for k in sorted(list(resp_dict.keys()))
-            ]"""
             #    signal_handler()
         # if match:
         #    print(line)
         # else:
         #    print("No match", line)
         resp_code, file_size = match.group(1, 2)
-        # print("check", file_size, resp_code)
         total_size += int(file_size)
+        # Check if resp_code is valid among the available keys
         if resp_dict.get(int(resp_code)) is not None:
             resp_dict[int(resp_code)] += 1
         loop_count += 1
         if loop_count % 10 == 0:
-            print("File size: {:d}".format(total_size))
+            print("File size: {}".format(total_size))
             [
-                print("{:d}: {:d}".format(k, resp_dict[k]))
+                print("{}: {}".format(k, resp_dict[k]))
                 if resp_dict.get(k) > 0 else ""
                 for k in sorted(resp_dict.keys())
             ]
     # Printing result at end of line too
-    signal_handler("a", "b")
+    signal_handler("_", "__")
