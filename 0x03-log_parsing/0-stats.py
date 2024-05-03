@@ -44,16 +44,16 @@ if __name__ == "__main__":
         pattern = pattern1 + pattern2 + pattern3 + pattern4 + pattern5
         match = re.search(pattern, line)
         if not match:
+            continue
             # loop_count += 1
             # if loop_count % 10 == 0:
-                """"print("File size: {:d}".format(total_size))
+            """"print("File size: {:d}".format(total_size))
                 [
                     print("{:d}: {:d}".format(k, resp_dict[k]))
                     if resp_dict.get(k) > 0 else ""
                     for k in sorted(list(resp_dict.keys()))
-                ]"""
+            ]"""
             #    signal_handler()
-            continue
         # if match:
         #    print(line)
         # else:
