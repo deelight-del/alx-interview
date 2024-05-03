@@ -72,4 +72,4 @@ if __name__ == "__main__":
                 for k in sorted(resp_dict.keys())
             ]
     # Printing result at end of line too
-    signal_handler()
+    signal_handler("a", "b")
