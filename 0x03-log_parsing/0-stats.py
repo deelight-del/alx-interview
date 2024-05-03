@@ -71,3 +71,5 @@ if __name__ == "__main__":
                 if resp_dict.get(k) > 0 else ""
                 for k in sorted(resp_dict.keys())
             ]
+    # Printing result at end of line too
+    signal_handler()
