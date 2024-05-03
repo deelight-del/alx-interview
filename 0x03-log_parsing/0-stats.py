@@ -22,6 +22,7 @@ if __name__ == "__main__":
         500: 0
     }
     loop_count = 0
+
     def signal_handler(_, __):
         """Define signal handler of CTRL+C"""
         print("File size: {}".format(total_size))
@@ -38,8 +39,9 @@ if __name__ == "__main__":
         pattern1 = r"^(?:(?:\d){1,3}\.){3}(?:\d{1,3})\s\-\s"
         pattern2 = r"\[\d{4}\-\d{2}\-\d{2}\s(?:\d{2}\:){2}\d\d\.\d{6}\]\s"
         pattern3 = r"\"GET\s\/projects\/260\sHTTP\/1\.1\"\s"
-        pattern4 = r"(200|301|400|401|403|404|405|500)\s([1-9][0-9]{0,2}|1024)"
-        pattern = pattern1 + pattern2 + pattern3 + pattern4
+        pattern4 = r"(200|301|400|401|403|404|405|500)\s"
+        pattern5 = r"([1-9][0-9]{0,2}[0-4]?)"
+        pattern = pattern1 + pattern2 + pattern3 + pattern4 + pattern5
         match = re.search(pattern, line)
         if not match:
             loop_count += 1
@@ -68,4 +70,3 @@ if __name__ == "__main__":
                 if resp_dict.get(k) > 0 else ""
                 for k in sorted(resp_dict.keys(), reverse=True)
             ]
-
