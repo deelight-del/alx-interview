@@ -25,9 +25,9 @@ if __name__ == "__main__":
 
     def signal_handler(_, __):
         """Define signal handler of CTRL+C"""
-        print("File size: {}".format(total_size))
+        print("File size: {:d}".format(total_size))
         [
-            print("{}: {}".format(k, resp_dict[k]))
+            print("{:s}: {:d}".format(k, resp_dict[k]))
             if resp_dict.get(k) > 0 else ""
             for k in sorted(list(resp_dict.keys()))
         ]
@@ -59,9 +59,9 @@ if __name__ == "__main__":
             resp_dict[int(resp_code)] += 1
         loop_count += 1
         if loop_count % 10 == 0:
-            print("File size: {}".format(total_size))
+            print("File size: {:d}".format(total_size))
             [
-                print("{}: {}".format(k, resp_dict[k]))
+                print("{:s}: {:d}".format(k, resp_dict[k]))
                 if resp_dict.get(k) > 0 else ""
                 for k in sorted(resp_dict.keys())
             ]
