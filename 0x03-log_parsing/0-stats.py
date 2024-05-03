@@ -29,7 +29,7 @@ if __name__ == "__main__":
         [
             print("{}: {}".format(k, resp_dict[k]))
             if resp_dict.get(k) > 0 else ""
-            for k in sorted(resp_dict.keys(), reverse=True)
+            for k in sorted(list(resp_dict.keys()))
         ]
 
     # Register the signal
@@ -50,7 +50,7 @@ if __name__ == "__main__":
                 [
                     print("{:d}: {:d}".format(k, resp_dict[k]))
                     if resp_dict.get(k) > 0 else ""
-                    for k in sorted(resp_dict.keys(), reverse=True)
+                    for k in sorted(list(resp_dict.keys()))
                 ]
             continue
         # if match:
