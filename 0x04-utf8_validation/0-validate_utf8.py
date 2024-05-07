@@ -12,11 +12,11 @@ def validUTF8(data):
             remnant -= 1
         else:
             if num >> 5 == 0b110:
-                remnant = 2
+                remnant = 1
             elif num >> 4 == 0b1110:
-                remnant = 3
+                remnant = 2
             elif num >> 3 == 0b11110:
-                remnant = 4
+                remnant = 3
             elif num >> 7 == 0b0:
                 continue
             else:
