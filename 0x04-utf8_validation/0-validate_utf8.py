@@ -4,6 +4,8 @@
 
 def validUTF8(data):
     """Implementation of valid UTF-8 function"""
+    if len(data) < 1:
+        return False
     remnant = 0
     for num in data:
         if remnant > 0:
