@@ -5,23 +5,27 @@ const request = require('request');
 const filmId = process.argv[2];
 const url = `https://swapi-api.alx-tools.com/api/films/${filmId}`;
 
-// Define function that will await.
-async function printCharacters (characterUrl) {
-  await request(characterUrl, (err, resp, body) => {
-    if (err) { return; }
-    console.log(JSON.parse(body).name);
+// Define function that will convert the return a
+// promise.
+function makeUrlPromise (characterUrl) {
+  return new Promise((resolve, reject) => {
+    request.get(characterUrl, (err, resp, body) => {
+      if (err) { reject(err); }
+      resolve(JSON.parse(body).name);
+    });
   });
 }
 
-async function main () {
-  request.get(url, function (err, resp, body) {
-    if (err) {
-      return;
-    }
-    JSON.parse(body).characters.forEach(
-      async function (character) {
-        await printCharacters(character);
-      });
+function main () {
+  request.get(url, (err, resp, body) => {
+    if (err) { return; }
+    const charactersUrl = JSON.parse(body).characters;
+    const urlPromisedNames = charactersUrl.map((name) => makeUrlPromise(name));
+    Promise.all(urlPromisedNames).then((names) => {
+      for (const name_ of names) {
+        console.log(name_);
+      }
+    });
   });
 }
 
