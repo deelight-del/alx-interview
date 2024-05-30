@@ -7,9 +7,8 @@ def rotate_2d_matrix(matrix):
 
     if len(matrix) < 1:
         return
-    # Reverse the each list in a matrix.
+    # Transpose the each list in a matrix.
+    matrix.reverse()
     for i in range(len(matrix)):
-        matrix[i].reverse()
-    for i in range(len(matrix)):
-        for j in range(len(matrix)):
+        for j in range(i+1, len(matrix)):
             matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
