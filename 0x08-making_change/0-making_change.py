@@ -4,6 +4,8 @@
 
 def makeChange(coins, total):
     """Function to implement make change problem"""
+    if total <= 0:
+        return 0
     coins_copy = coins[:]
     coins_copy.sort(reverse=True)
     change = 0
