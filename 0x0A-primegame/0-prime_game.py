@@ -36,6 +36,8 @@ def isWinner(x, nums):
     """Uses sieve_of_n to determine eventual winner in x round
     of the game."""
 
+    if x <= 0:
+        return None
     rounds_win = [sieve_of_n(num) for num in nums]
     maria_count = rounds_win.count('Maria')
     ben_count = rounds_win.count('Ben')
