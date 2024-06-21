@@ -16,7 +16,8 @@ def sieve_of_n(n):
     playing_round = 0
     prime_number_idx = 1
     sieve = [i + 1 for i in range(n)]
-    while sieve[prime_number_idx] < (n / 2) + 1:
+    # while sieve[prime_number_idx] < (n / 2) + 1:
+    while sieve[prime_number_idx] < int(n ** .5) + 1:
         prime_number = sieve[prime_number_idx]
         for number in sieve[prime_number_idx + 1:]:
             if number % prime_number == 0:
