@@ -15,15 +15,17 @@ def sieve_of_n(n):
         return 'Ben'
     playing_round = 0
     prime_number_idx = 1
-    sieve = [True for i in range(n)]
-    sieve[0] = False
-    while (prime_number_idx < int(n ** .5) + 1):
-        for i in range(prime_number_idx, n, prime_number_idx):
-            if i != 1:
-                sieve[i] = False
+    sieve = [i + 1 for i in range(n)]
+    sieve_copy = sieve[:]
+    while sieve[prime_number_idx] < int(n ** .5) + 1:
+        prime_number = sieve[prime_number_idx]
+        for number in sieve[prime_number_idx + 1:]:
+            if number % prime_number == 0:
+                sieve.remove(number)
         prime_number_idx += 1
         playing_round += 1
     prime_number_idx -= 1
+    playing_round += len(sieve[prime_number_idx:])
     if playing_round % 2:
         return 'Ben'
     return 'Maria'
